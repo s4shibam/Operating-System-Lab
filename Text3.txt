@@ -1,0 +1,2 @@
+This is Text3.txt file. (Existing)
+This is the appended line!
