@@ -12,10 +12,10 @@ int main()
 	printf ("Before fork!\n");
 	f = fork();	
 	
-	// The creation of the process was unsuccessfull
+	// The creation of the process was unsuccessful
 	if (f < 0){
 		
-		printf ("Error occured!\n");
+		printf ("Error occurred!\n");
 	}
 	
 	// Child process
@@ -29,7 +29,7 @@ int main()
 	// Parent process
 	else {
 	
-		// Parent process will wait untill execution of the child process
+		// Parent process will wait until execution of the child process
 		wait(NULL);
 		printf ("This is Parent Process!\n");
 		printf ("Parent: Parent Process pid: %d\n", getpid());

@@ -3,7 +3,7 @@
 // program1 --> 15_Named_Pipe_Data_Transfer_Sender.c (Sender)
 // program2 --> 15_Named_Pipe_Data_Transfer_Receiver.c (Receiver)
 	
-// **Note: This program or transfer will work only if both the sender and receiver is availale
+// **Note: This program or transfer will work only if both the sender and receiver is available
 
 // Receiver
 #include <stdio.h>
@@ -29,11 +29,12 @@ int main()
 
 /*
 	Output: 
+	
 	s4shibam@SHIBAM:~/OS$ gcc 15_Named_Pipe_Data_Transfer_Sender.c -o send.out
 	s4shibam@SHIBAM:~/OS$ gcc 15_Named_Pipe_Data_Transfer_Receiver.c -o receive.out
 	s4shibam@SHIBAM:~/OS$ ./send.out & ./receive.out
 	[1] 832
-	Named pipe created succesfully!
+	Named pipe created successfully!
 	Sender: Message sent from process pid: 832.
 	Receiver: Message received to process pid: 833.
 	Receiver says: This data has been transferred via nPipe1

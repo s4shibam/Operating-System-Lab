@@ -20,7 +20,7 @@ int main()
 	// Create named pipe
 	unlink("nPipe2");
 	res = mkfifo("nPipe2", 0777);
-	printf ("Named pipe created succesfully!\n");
+	printf ("Named pipe created successfully!\n");
 	
 	// User input
 	printf("Enter 5 array elements (space-separated): ");

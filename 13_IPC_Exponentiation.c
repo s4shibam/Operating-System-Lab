@@ -15,10 +15,10 @@ int main()
 	pipe(fd);
 	f = fork();	
 	
-	// The creation of the process was unsuccessfull
+	// The creation of the process was unsuccessful
 	if (f < 0){
 		
-		printf ("Error occured!\n");
+		printf ("Error occurred!\n");
 	}
 	
 	// Child process
@@ -45,6 +45,7 @@ int main()
 		read(fd[0], arr, sizeof(arr));	// Received data from child
 		printf ("Parent: Data received.\n");
 		
+		// Exponentiation
 		for (int i = 1; i <= arr[1]; i++)
 		{
 			arr[2] *= arr[0];

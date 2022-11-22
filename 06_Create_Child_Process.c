@@ -12,10 +12,10 @@ int main()
 	printf ("Before fork!\n");
 	f = fork();	
 	
-	// The creation of the process was unsuccessfull
+	// The creation of the process was unsuccessful
 	if (f < 0){
 		
-		printf ("Error occured!\n");
+		printf ("Error occurred!\n");
 	}
 	
 	// Child process

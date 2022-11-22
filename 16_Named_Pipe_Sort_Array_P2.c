@@ -4,7 +4,7 @@
 // program1 --> 15_Named_Pipe_Sort_Array_P1.c 
 // program2 --> 15_Named_Pipe_Sort_Array_P2.c
 
-// **Note: This program or transfer will work only if both the sender and receiver is availale
+// **Note: This program or transfer will work only if both the sender and receiver is available
 
 // Receiver
 #include <stdio.h>
