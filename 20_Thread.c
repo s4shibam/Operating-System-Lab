@@ -56,7 +56,8 @@ int main()
     s4shibam@SHIBAM:~/OS$
 
     [Without sleep()]
-    s4shibam@SHIBAM:~/OS$ gcc 20_Thread.c -lpthread -o t.out                                                              s4shibam@SHIBAM:~/OS$ ./t.out
+    s4shibam@SHIBAM:~/OS$ gcc 20_Thread.c -lpthread -o t.out
+    s4shibam@SHIBAM:~/OS$ ./t.out
     Main function starts!
     Main function ends!
     Thread function starts!
