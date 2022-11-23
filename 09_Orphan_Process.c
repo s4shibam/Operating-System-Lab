@@ -15,41 +15,44 @@ Orphan Process:
 int main()
 {
 	int f;
-	
-	printf ("Before fork!\n");
-	f = fork();	
-	
+
+	printf("Before fork!\n");
+	f = fork();
+
 	// The creation of the process was unsuccessful
-	if (f < 0){
-		
-		printf ("Error occurred!\n");
+	if (f < 0)
+	{
+
+		printf("Error occurred!\n");
 	}
-	
+
 	// Child process
-	else if (f == 0){
-	
-		// Child process will be in sleep for 5 secs 
+	else if (f == 0)
+	{
+
+		// Child process will be in sleep for 5 secs
 		// in the meantime execution of the parent process will be completed.
 		// Thus child process will become Orphan (parent has finished already)
 		sleep(5);
-		printf ("This is Child Process!\n");
-		printf ("Child: Child Process pid: %d\n", getpid());
-		printf ("Child: Parent Process pid: %d\n", getppid());	// It will print incorrect pid (parent process has terminated)
+		printf("This is Child Process!\n");
+		printf("Child: Child Process pid: %d\n", getpid());
+		printf("Child: Parent Process pid: %d\n", getppid()); // It will print incorrect pid (parent process has terminated)
 	}
-	
+
 	// Parent process
-	else {
-	
-		sleep(2);	// Time to run "ps" command 
-		printf ("This is Parent Process!\n");
-		printf ("Parent: Parent Process pid: %d\n", getpid());
-		printf ("Parent: Child Process pid: %d\n", f);
+	else
+	{
+
+		sleep(2); // Time to run "ps" command
+		printf("This is Parent Process!\n");
+		printf("Parent: Parent Process pid: %d\n", getpid());
+		printf("Parent: Child Process pid: %d\n", f);
 	}
 }
 
 /*
 	Output:
-	
+
 	s4shibam@SHIBAM:~/OS$ gcc 9_Orphan_Process.c
 	s4shibam@SHIBAM:~/OS$ ./a.out
 	Before fork!
@@ -60,13 +63,13 @@ int main()
 	Child: Child Process pid: 2026
 	Child: Parent Process pid: 1
 	^C
-	s4shibam@SHIBAM:~/OS$ 
-	
+	s4shibam@SHIBAM:~/OS$
+
 */
 
 /*
 	Output: [using ps command]
-	
+
 	s4shibam@SHIBAM:~/OS$ gcc 9_Orphan_Process.c
 	s4shibam@SHIBAM:~/OS$ ./a.out &
 	[1] 2342
@@ -90,5 +93,5 @@ int main()
 	Child: Child Process pid: 2343
 	Child: Parent Process pid: 1
 	^C
-	s4shibam@SHIBAM:~/OS$  
+	s4shibam@SHIBAM:~/OS$
 */

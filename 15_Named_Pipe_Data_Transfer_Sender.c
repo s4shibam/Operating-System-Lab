@@ -1,4 +1,4 @@
-// Q. Transfer message from program1 to read by program2 (Named Pipe)
+// Q. Transfer message from program1 to read by program2 using Named Pipe
 
 // program1 --> 15_Named_Pipe_Data_Transfer_Sender.c (Sender)
 // program2 --> 15_Named_Pipe_Data_Transfer_Receiver.c (Receiver)
@@ -16,23 +16,22 @@ int main()
 {
 	int res;
 	char sMsg[50] = "This data has been transferred via nPipe1";
-	
+
 	// Create named pipe
 	res = mkfifo("nPipe1", 0777);
-	printf ("Named pipe created successfully!\n");
-	
+	printf("Named pipe created successfully!\n");
+
 	// Open named pipe
 	res = open("nPipe1", O_WRONLY);
-	
+
 	// Write message
 	write(res, sMsg, sizeof(sMsg));
-	printf ("Sender: Message sent from process pid: %d.\n", getpid());
+	printf("Sender: Message sent from process pid: %d.\n", getpid());
 }
 
-
 /*
-	Output: 
-	
+	Output:
+
 	s4shibam@SHIBAM:~/OS$ gcc 15_Named_Pipe_Data_Transfer_Sender.c -o send.out
 	s4shibam@SHIBAM:~/OS$ gcc 15_Named_Pipe_Data_Transfer_Receiver.c -o receive.out
 	s4shibam@SHIBAM:~/OS$ ./send.out & ./receive.out
@@ -42,5 +41,5 @@ int main()
 	Receiver: Message received to process pid: 833.
 	Receiver says: This data has been transferred via nPipe1
 	[1]+  Done                    ./send.out
-	s4shibam@SHIBAM:~/OS$ 
+	s4shibam@SHIBAM:~/OS$
 */
