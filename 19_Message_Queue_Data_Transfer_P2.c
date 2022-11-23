@@ -24,7 +24,11 @@ int main()
     int msgid = msgget((key_t)12345, 0666 | IPC_CREAT);
     printf("P2: Message ID: %d.\n", msgid);
 
+<<<<<<< HEAD
     msgrcv(msgid, &msg, sizeof(msg), 0, 0);
+=======
+    msgrcv(msgid, &msg, sizeof(msg), msg.msgType, 0);
+>>>>>>> bdc3e2f767862546ef379cf9e16eb6362777591d
 
     printf("P2: Message received!\n");
     printf("P2: Message : %s\n", msg.msgData);

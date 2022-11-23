@@ -24,6 +24,11 @@ int main()
     printf("P1: Enter message: ");
     scanf("%s", msg.msgData);
 
+<<<<<<< HEAD
+=======
+    printf("check: %s\n", msg.msgData);
+
+>>>>>>> bdc3e2f767862546ef379cf9e16eb6362777591d
     int msgid = msgget((key_t)12345, 0666 | IPC_CREAT);
     msg.msgType = 1;
 
