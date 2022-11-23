@@ -11,7 +11,7 @@ Zombie Process:
 	This happens because the child is no longer active but its exit code needs to be stored in case
 	the parent subsequently calls wait.
 */
-	
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -19,43 +19,45 @@ Zombie Process:
 int main()
 {
 	int f;
-	
-	printf ("Before fork!\n");
-	f = fork();	
-	
+
+	printf("Before fork!\n");
+	f = fork();
+
 	// The creation of the process was unsuccessful
-	if (f < 0){
-		
-		printf ("Error occurred!\n");
+	if (f < 0)
+	{
+
+		printf("Error occurred!\n");
 	}
-	
+
 	// Child process
-	else if (f == 0){
-	
-		
-		printf ("This is Child Process!\n");
-		printf ("Child: Child Process pid: %d\n", getpid());
-		printf ("Child: Parent Process pid: %d\n", getppid());
+	else if (f == 0)
+	{
+
+		printf("This is Child Process!\n");
+		printf("Child: Child Process pid: %d\n", getpid());
+		printf("Child: Parent Process pid: %d\n", getppid());
 	}
-	
+
 	// Parent process
-	else {
-	
+	else
+	{
+
 		// Helps to avoid zombie process creation situation
 		wait(NULL);
-		
+
 		// Parent process will be in sleep for 5 secs
 		// Time needed to run ps command
 		sleep(5);
-		printf ("This is Parent Process!\n");
-		printf ("Parent: Parent Process pid: %d\n", getpid());
-		printf ("Parent: Child Process pid: %d\n", f);
+		printf("This is Parent Process!\n");
+		printf("Parent: Parent Process pid: %d\n", getpid());
+		printf("Parent: Child Process pid: %d\n", f);
 	}
 }
 
 /*
 	Output: [when Zombie process is created - wait() not called]
-	
+
 	s4shibam@SHIBAM:~/OS$ gcc 10_Zombie_Process.c
 	s4shibam@SHIBAM:~/OS$ ./a.out &
 	[1] 2617
@@ -75,13 +77,13 @@ int main()
 	^C
 	[1]+  Done                    ./a.out
 	s4shibam@SHIBAM:~/OS$
-	
-	** <defunct> denotes the Zombie Proces
+
+	** <defunct> denotes the Zombie Process
 */
 
 /*
 	Output: [after avoiding Zombie process - wait() called]
-	
+
 	s4shibam@SHIBAM:~/OS$ gcc 10_Zombie_Process.c
 	s4shibam@SHIBAM:~/OS$ ./a.out &
 	[1] 2658

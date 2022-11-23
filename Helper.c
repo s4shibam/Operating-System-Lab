@@ -4,5 +4,5 @@
 
 int main()
 {
-	printf("This is a Helper Program.\n");	
+	printf("This is a Helper Program.\n");
 }
